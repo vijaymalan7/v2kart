@@ -1,0 +1,57 @@
+{% extends "app/base.html" %}
+{% block title %}Fitness Product{% endblock title %}
+{% block livesale %}
+
+{% include "app/btns.html" %}
+<!-- Live Sale Section -->
+<div class="container">
+  <div class="row bg-danger text-center p-5 text-white border-bottom shadow">
+    <h1>SALE IS LIVE NOW</h1>
+    {% comment %} <span>5% Instant Discount on Axis Bank Credit and Debit Card</span>
+    <small class="fw-lighter">Term and Condition Applied (For details visit Bank's official Website)</small> {% endcomment %}
+  </div>
+</div> 
+<!-- End Live Sale Section -->
+{% endblock livesale %}
+
+{% block main-content %}
+{% comment %} 
+<div class="m-3">
+    <h2>vKart Bottom Wear</h2>
+    <!-- Slider 1 -->
+    <div class="owl-carousel" id="slider1">
+     {% for b in bottomwears %}
+       <a href="{% url 'product-detail' b.id %}" class="btn"><div class="item"><img src="{{b.product_image.url}}" alt="" height="300px"><span class="fw-bold">{{b.title}}</span><br><span class="fs-5">Rs. {{b.discounted_price}}</span></div></a>
+     {% endfor %}
+    </div>
+</div> {% endcomment %}
+
+
+
+
+<div class="container d-flex justify-content-center">
+  <div class="col-sm-10">
+    <div class="row">
+      {% for f in products %}
+      <div class="col-6 col-md-4 mt-4 ">
+        <div class="card text-center h-100">
+          <a href="{% url 'product-detail' f.id %}" class="btn">
+            <img src="{{f.product_image.url}}" alt="{{f.title}}" class="card-img-top" height="300">
+          </a>
+          <div class="card-body">
+            <h5 class="card-title fw-bold">{{f.title}}</h5>
+            <p class="card-text fw-bold">Rs. {{f.discounted_price}} <small class="fw-light text-decoration-line-through">{{t.selling_price}}</small></p>
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</div>
+</div>
+
+
+
+
+
+{% endblock main-content %}

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        .buttonn {
+            padding: 5px 5px;
+            margin: 0 2px; /* Reduced margin to fit in a single line */
+            font-size: 15px;
+            color: #000;
+            text-align: center;
+            text-decoration: none;
+            border: 2px solid black;
+            border-radius: 5px;
+            background-color: #f0f0f0; /* Background color */
+            transition: background-color 0.3s, color 0.3s;
+            height: 70%; /* Ensure buttons take the full height of the container */
+            display: flex;
+            align-items: center; /* Center items vertically within the button */
+            justify-content: center; /* Center text horizontally within the button */
+        }
+
+        .buttonn:hover {
+            background-color: #000; /* Background color on hover */
+            color: #fff; /* Text color on hover */
+        }
+
+        .buttonn-container {
+            display: flex;
+            flex-wrap: nowrap; 
+            align-items: center; 
+            {% comment %} justify-content: center; /* Center items horizontally */ {% endcomment %}
+            height: 50px; /* Adjust this value to match the height of your navbar */
+            overflow-x: auto; /* Allow horizontal scrolling if necessary */
+            white-space: nowrap; /* Prevent line breaks */
+            background-color: #f8f9fa; /* Navbar-like background color */
+            box-shadow: 0 4px 2px -2px gray; /* Optional: Add a shadow for better appearance */
+            padding: 0 10px; /* Optional: Add some padding */
+        }
+        /* Styles for the active button */
+        .buttonn.active {
+            background-color: black; /* Example: change background color */
+            color: white; /* Example: change text color */
+            /* Add other styles as needed */
+}
+    </style>
+</head>
+<body>
+    {% comment %} <div class="buttonn-container">
+        <a class="buttonn" href="{% url 'top-wear' %}">TopWear</a>
+        <a class="buttonn" href="{% url 'bottom-wear' %}">BottomWear</a>
+        <a class="buttonn" href="{% url 'mobile' %}">Mobile</a>
+        <a class="buttonn" href="{% url 'home' %}">7T7T</a>
+        <a class="buttonn" href="{% url 'home' %}">Shoes</a>
+        <a class="buttonn" href="{% url 'fitness-product' %}">Nutrition</a>
+        <a class="buttonn" href="{% url 'all-products' %}">All_Product</a>
+    </div> {% endcomment %}
+    <div class="buttonn-container">
+        <a class="buttonn {% if request.path == '/home/' %}active{% endif %}" href="{% url 'home' %}">Home</a>
+        <a class="buttonn {% if request.path == '/top-wear/' %}active{% endif %}" href="{% url 'top-wear' %}">TopWear</a>
+        <a class="buttonn {% if request.path == '/bottom-wear/' %}active{% endif %}" href="{% url 'bottom-wear' %}">BottomWear</a>
+        <a class="buttonn {% if request.path == '/mobile/' %}active{% endif %}" href="{% url 'mobile' %}">Mobile</a>
+        <a class="buttonn {% if request.path == '/7T7T/' %}active{% endif %}" href="{% url '7T7T' %}">Sports-7T7T</a>
+        <a class="buttonn {% if request.path == '/shoes/' %}active{% endif %}" href="{% url 'shoes' %}">Shoes</a>
+        <a class="buttonn {% if request.path == '/fitness-product/' %}active{% endif %}" href="{% url 'fitness-product' %}">Nutrition</a>
+        <a class="buttonn {% if request.path == '/all-products/' %}active{% endif %}" href="{% url 'all-products' %}">All_Product</a>
+    </div>
+</body>
+</html>
